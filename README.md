@@ -43,7 +43,7 @@ please change parent class to this or open it for learning how to it works (I me
 function)
 
 ```java 
-import com.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport;
+import io.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport;
 ``` 
 
 # for Spring Framework
@@ -51,11 +51,11 @@ import com.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport;
 You must register property apply bean
 
 ```java
-import com.github.iruzhnikov.web.servlet.SpringMvcCorsConfigurer;
+import io.github.iruzhnikov.web.servlet.SpringMvcCorsConfigurer;
 ```
 
 and you should register autoconfiguration for _allowed-methods_ (not required)
 
 ```java
-import com.github.iruzhnikov.web.servlet.CorsEndpointHandlerMapping;
+import io.github.iruzhnikov.web.servlet.CorsEndpointHandlerMapping;
 ```

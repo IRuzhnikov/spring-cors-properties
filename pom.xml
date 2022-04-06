@@ -8,7 +8,7 @@
         <module>spring-framework</module>
     </modules>
 
-    <groupId>com.github.iruzhnikov</groupId>
+    <groupId>io.github.iruzhnikov</groupId>
     <artifactId>spring-cors-properties</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1</version>
