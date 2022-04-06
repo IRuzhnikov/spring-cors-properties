@@ -11,7 +11,7 @@
     <groupId>io.github.iruzhnikov</groupId>
     <artifactId>spring-cors-properties</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Adds support CORS configurations from properties file</description>
@@ -63,7 +63,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <self.version>0.0.1</self.version>
+        <self.version>0.0.1-SNAPSHOT</self.version>
 
         <jsr305.version>3.0.2</jsr305.version>
         <lombok.version>1.18.22</lombok.version>
