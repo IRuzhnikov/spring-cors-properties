@@ -34,9 +34,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:${project.scm.url}</connection>
-        <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>git@github.com:IRuzhnikov/spring-cors-properties.git</url>
+        <connection>scm:git:git://github.com/IRuzhnikov/spring-cors-properties.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/IRuzhnikov/spring-cors-properties.git</developerConnection>
+        <url>https://github.com/IRuzhnikov/spring-cors-properties</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -211,6 +211,7 @@
                         <goals>deploy</goals>
                         <scmCommentPrefix>[ci skip]</scmCommentPrefix>
                         <tagNameFormat>v-@{project.version}</tagNameFormat>
+                        <username>git</username>
                     </configuration>
                 </plugin>
                 <plugin>
