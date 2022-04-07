@@ -27,11 +27,10 @@ jobs:
           server-password: OSSRH_PASSWORD
           gpg-private-key: ${{ secrets.GPG_KEY_CONTENTS }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Publish to Sonatype
         run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
         env:
           OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
