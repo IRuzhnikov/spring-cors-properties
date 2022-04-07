@@ -76,10 +76,6 @@
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
-
-        <gpg.keyname>0x49F356A2</gpg.keyname>
-        <gpg.executable>gpg</gpg.executable>
-        <gpg.passphrase>gpg_passphrase</gpg.passphrase>
     </properties>
 
     <dependencyManagement>
@@ -195,8 +191,6 @@
                                 <goal>sign</goal>
                             </goals>
                             <configuration>
-                                <keyname>${gpg.keyname}</keyname>
-                                <passphrase>${gpg.passphrase}</passphrase>
                                 <gpgArguments>
                                     <arg>--pinentry-mode</arg>
                                     <arg>loopback</arg>
