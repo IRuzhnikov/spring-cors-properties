@@ -22,8 +22,6 @@ jobs:
           chmod 0400 ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
           chmod 0400 ~/.ssh/id_rsa.pub
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add
 
       - run: |
           git config --global user.email "ruzhnikov.ivan@gmail.com"
