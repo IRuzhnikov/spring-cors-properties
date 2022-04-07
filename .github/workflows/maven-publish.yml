@@ -46,8 +46,8 @@ jobs:
       - name: Prepare
         run: mvn release:prepare -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
         env:
-          OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
