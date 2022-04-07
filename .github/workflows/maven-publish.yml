@@ -52,7 +52,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Publish to Sonatype
-        run: mvn release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
+        run: mvn -X release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
         env:
           OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
