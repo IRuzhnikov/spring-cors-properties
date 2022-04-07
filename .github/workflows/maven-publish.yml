@@ -54,6 +54,7 @@ jobs:
       - name: Install gpg secret key
         run: |
           cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS }}") | gpg --batch --import
+          cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS_PUBLIC }}") | gpg --batch --import
           gpg --list-secret-keys --keyid-format LONG
 
       - name: Publish to Sonatype
