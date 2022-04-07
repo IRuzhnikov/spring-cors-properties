@@ -35,8 +35,8 @@ jobs:
           java-version: 8
           distribution: 'adopt'
           server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_PASSWORD
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_KEY_CONTENTS }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       
@@ -50,11 +50,16 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
+      - name: Install gpg secret key
+        run: |
+          cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS }}") | gpg --batch --import
+          gpg --list-secret-keys --keyid-format LONG
+
       - name: Publish to Sonatype
         run: mvn -X release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
         env:
-          OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
