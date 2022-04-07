@@ -39,7 +39,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
 
       - name: Publish to Sonatype
-        run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} -Drepository.url=https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
         env:
           OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
