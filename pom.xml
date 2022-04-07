@@ -10,7 +10,7 @@
     <groupId>io.github.iruzhnikov</groupId>
     <artifactId>spring-cors-properties</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.8</version>
+    <version>0.0.9-SNAPSHOT</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Adds support CORS configurations from properties file</description>
@@ -37,7 +37,7 @@
         <connection>scm:git:git://github.com/IRuzhnikov/spring-cors-properties.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/IRuzhnikov/spring-cors-properties.git</developerConnection>
         <url>https://github.com/IRuzhnikov/spring-cors-properties</url>
-        <tag>v-0.0.8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
