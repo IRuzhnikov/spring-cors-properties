@@ -12,6 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+
       - run: |
           git config --global user.email "ruzhnikov.ivan@gmail.com"
           git config --global user.name "IRuzhnikov"
