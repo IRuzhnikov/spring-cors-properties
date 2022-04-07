@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run: git config --global user.email "ruzhnikov.ivan@gmail.com"
-    - run: git config --global user.name "IRuzhnikov"
     - name: Set up JDK 1.8
       uses: actions/setup-java@v3
       with:
@@ -26,7 +24,9 @@ jobs:
         gpg-private-key: ${{ secrets.GPG_KEY_CONTENTS }}
         gpg-passphrase: MAVEN_GPG_PASSPHRASE
     - name: Publish to Sonatype
-      run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
+    - run: git config --global user.email "ruzhnikov.ivan@gmail.com"
+    - run: git config --global user.name "IRuzhnikov"
+    - run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
       env:
         OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
         OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
