@@ -78,6 +78,7 @@
         <maven-gpg-plugin.version>1.5</maven-gpg-plugin.version>
 
         <gpg.keyname>0x49F356A2</gpg.keyname>
+        <gpg.executable>gpg</gpg.executable>
         <gpg.passphrase>gpg_passphrase</gpg.passphrase>
     </properties>
 
