@@ -34,9 +34,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/IRuzhnikov/spring-cors-properties.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:IRuzhnikov/spring-cors-properties.git</developerConnection>
-        <url>https://github.com/IRuzhnikov/spring-cors-properties</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:ssh:${project.scm.url}</developerConnection>
+        <url>git@github.com:IRuzhnikov/spring-cors-properties.git</url>
         <tag>HEAD</tag>
     </scm>
 
