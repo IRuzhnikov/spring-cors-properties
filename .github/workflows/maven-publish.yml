@@ -39,9 +39,20 @@ jobs:
           server-password: OSSRH_PASSWORD
           gpg-private-key: ${{ secrets.GPG_KEY_CONTENTS }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-
+      
+      - name: Clean
+        run: mvn release:clean
+        
+      - name: Prepare
+        run: mvn release:prepare -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
+        env:
+          OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Publish to Sonatype
-        run: mvn release:clean release:prepare release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
+        run: mvn release:perform -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }}
         env:
           OSSRH_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
