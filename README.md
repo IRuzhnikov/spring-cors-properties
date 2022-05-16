@@ -7,7 +7,7 @@ This library will add support of configuration and enabling CORS by application.
 Add this property to _application.properties_ file for enable/disable reading configuration from file
 
 ```properties
-spring.mvc.cors.enabled=true
+spring.web.cors.enabled=true
 ```
 
 For specify details of cors configuration you can use file _cors.yml_ (of course you can use default _
@@ -15,9 +15,9 @@ application.properties_ file)
 
 ```yml
 spring:
-  mvc:
+  web:
     cors:
-      mappings: #spring.mvc.cors.mappings.<any_name>.<property>: <value>
+      mappings: #spring.web.cors.mappings.<any_name>.<property>: <value>
         randomName: #just random name, only for mapping
           path: /test/post #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
           #allowed-origins: "*"

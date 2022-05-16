@@ -32,8 +32,8 @@ import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfigu
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureBefore(DelegatingWebMvcConfiguration.class)
 @ConditionalOnProperty(prefix = SpringCorsProperties.SPRING_MVC_CORS, name = "enabled", havingValue = "true")
-@ComponentScan(basePackageClasses = {CorsPropWebMvcConfigurationSupport.class})
 @PropertySource(value = {"classpath:cors.yml"}, factory = YamlPropertyLoaderFactory.class)
+@ComponentScan(basePackageClasses = {CorsPropWebMvcConfigurationSupport.class})
 public class CorsPropWebMvcConfiguration {
 
     @Bean

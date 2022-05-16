@@ -1,8 +1,8 @@
 spring:
-  mvc:
+  web:
     cors:
       enabled: true
-      mappings: #spring.mvc.cors.mappings.<any_name>.<property>: <value>
+      mappings: #spring.web.cors.mappings.<any_name>.<property>: <value>
         post:
           path: /test/post #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
           #allowed-origins: "*"
