@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.github.iruzhnikov</groupId>
         <artifactId>spring-cors-properties</artifactId>
-        <version>1.0.8</version>
+        <version>1.0.9-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -42,12 +42,12 @@
             <dependency>
                 <groupId>io.github.iruzhnikov</groupId>
                 <artifactId>spring-webmvc-cors-properties</artifactId>
-                <version>1.0.8</version>
+                <version>1.0.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>io.github.iruzhnikov</groupId>
                 <artifactId>spring-webflux-cors-properties</artifactId>
-                <version>1.0.8</version>
+                <version>1.0.9-SNAPSHOT</version>
             </dependency>
 
             <dependency>
