@@ -44,7 +44,7 @@ jobs:
         run: mvn release:clean
         
       - name: Prepare
-        run: mvn release:prepare -ntp
+        run: mvn release:prepare -B
 
       - name: Install gpg secret key
         run: |
