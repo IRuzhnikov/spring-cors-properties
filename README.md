@@ -1,30 +1,34 @@
 # Description
 
-This library enables the CORS configuration in application property 
+This library enables the CORS configuration in application property
 files such as application.properties / application.yml / cors.yml
-In general. no coding is required to configure CORS for different 
-environments of your application. All you need to do is 
-1. add the feature to your project changing maven / gradle / other build tool config 
+In general. no coding is required to configure CORS for different
+environments of your application. All you need to do is
+
+1. add the feature to your project changing maven / gradle / other build tool config
 2. enable the feature in project property file
 3. configure the CORS in the same or separate property file, that's up to you to decide
-   
+
 # How to add the feature to Spring Boot
+
 To enable the feature, please add the dependency to your project (navigate to this links):  
 [![MVC](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webmvc-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20MVC.&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webmvc-cors-properties-autoconfigure%22)  
 [![FLUX](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webflux-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20FLUX&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webflux-cors-properties-autoconfigure%22)
 
 # To enable the feature in Spring Boot project
 
-Add this property to `application.properties` file for adding reading configuration from different file 
+Add this property to `application.properties` file for adding reading configuration from different file
 
 `application.properties` file content:
-```properties
-spring.config.import=optional:classpath:cors.yml
+
+```yml
+spring.config.import: optional:classpath:cors.yml
 ```
 
 Configure the CORS rules in `cors.yml` properties file
 
 `cors.yml` file content:
+
 ```yml
 spring:
   web:
@@ -41,6 +45,7 @@ spring:
           allowed-origin-patterns: .*
           #max-age: PT30M
 ```
+
 The 'anyName' in configuration lets you configure the different groups, e.g. 'path /api' and 'path /api/admin' may
 have CORS configurations. To make the configurations different, please different sections, e.g. 'anyName: api' and
 'anyName: apiAdmin'.
@@ -55,11 +60,11 @@ configurations.
 
 > ![](https://img.shields.io/static/v1?label=&message=WARNING&style=flat-square&color=orange)  
 > Don't use this library for CORS configuration for `Spring Actuator`,
-> because this library has self specific confg (props name like of _management.*_)  
+> because this library has self specific config (props name like of _management.*_)  
 > [more details in Spring](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.cors)
 
 > ![](https://img.shields.io/static/v1?label=&message=WARNING&style=flat-square&color=orange)  
-> For application.yml files that contains several spring.profiles, please use property file annotation (one line) 
+> For application.yml files that contains several 'spring.profiles', please use property file annotation (one line)
 > for `spring.web.cors.enabled`, otherwise spring boot ignores the config line.  
 > [more details in stackoverflow](https://stackoverflow.com/a/35400025)
 
@@ -76,11 +81,11 @@ remove _@EnableWebMvc_  in your code.
 > //for FLUX
 > import org.springframework.web.reactive.config.DelegatingWebFluxConfiguration;
 > ``` 
-> 
+>
 > please change extended class to next class or open it for learning how to it works  
 > (I mean createRequestMappingHandlerMapping
 > function)
-> 
+>
 > ```java
 > //for MVC
 > import io.github.iruzhnikov.webmvc.servlet.CorsPropWebMvcConfigurationSupport;
