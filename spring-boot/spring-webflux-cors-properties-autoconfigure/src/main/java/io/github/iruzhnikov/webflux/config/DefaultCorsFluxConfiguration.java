@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.iruzhnikov.config;
+package io.github.iruzhnikov.webflux.config;
 
+import io.github.iruzhnikov.webflux.servlet.CorsPropWebFluxConfigurationSupport;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfigurer {
-
+@EnableWebFlux
+@Configuration(proxyBeanMethods = false)
+@AutoConfigureAfter(CorsPropWebFluxConfigurationSupport.class)
+@ConditionalOnProperty(prefix = SpringCorsProperties.SPRING_FLUX_CORS, name = "enabled", havingValue = "false")
+public class DefaultCorsFluxConfiguration {
 }

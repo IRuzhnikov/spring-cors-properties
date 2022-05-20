@@ -16,15 +16,14 @@
 
 package io.github.iruzhnikov;
 
-import io.github.iruzhnikov.webmvc.servlet.CorsPropWebMvcConfigurationSupport;
+import io.github.iruzhnikov.webflux.servlet.CorsPropWebFluxConfigurationSupport;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.ComponentScan;
 
-
-@AutoConfigurationPackage(basePackageClasses = CorsPropWebMvcConfigurationSupport.class)
+@AutoConfigurationPackage(basePackageClasses = CorsPropWebFluxConfigurationSupport.class)
 @SpringBootApplication
 @ConfigurationPropertiesScan
 @ComponentScan(lazyInit = true)

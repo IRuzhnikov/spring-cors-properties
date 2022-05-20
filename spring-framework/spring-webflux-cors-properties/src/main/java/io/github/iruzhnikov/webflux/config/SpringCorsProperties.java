@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.iruzhnikov.config;
+package io.github.iruzhnikov.webflux.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import lombok.Data;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfigurer {
+import java.util.HashMap;
+import java.util.Map;
 
+@Data
+public class SpringCorsProperties {
+    //Base property path
+    public static final String SPRING_FLUX_CORS = "spring.web.cors";
+    private final Map<String, PathCorsConfiguration> mappings = new HashMap<>();
+    private Boolean enabled;
 }

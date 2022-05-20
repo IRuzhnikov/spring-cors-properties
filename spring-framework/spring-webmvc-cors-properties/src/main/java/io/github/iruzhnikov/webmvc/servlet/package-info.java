@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.iruzhnikov.config;
+@NonNullApi
+@NonNullFields
+package io.github.iruzhnikov.webmvc.servlet;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfigurer {
-
-}
+import org.springframework.lang.NonNullApi;
+import org.springframework.lang.NonNullFields;

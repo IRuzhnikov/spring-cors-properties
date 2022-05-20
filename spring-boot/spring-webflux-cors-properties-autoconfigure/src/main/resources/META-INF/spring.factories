@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.iruzhnikov.webflux.config.CorsPropWebFluxConfiguration,\
+  io.github.iruzhnikov.webflux.servlet.CorsPropWebFluxConfigurationSupport,\
+  io.github.iruzhnikov.webflux.config.DefaultCorsFluxConfiguration

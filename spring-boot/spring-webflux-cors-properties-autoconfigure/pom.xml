@@ -25,13 +25,13 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-webmvc-cors-properties-autoconfigure</artifactId>
+    <artifactId>spring-webflux-cors-properties-autoconfigure</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>io.github.iruzhnikov</groupId>
-            <artifactId>spring-webmvc-cors-properties</artifactId>
+            <artifactId>spring-webflux-cors-properties</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -40,24 +40,23 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-webflux</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-test-autoconfigure</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -71,13 +70,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
             <scope>test</scope>
         </dependency>
 

@@ -25,7 +25,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>spring-webmvc-cors-properties</artifactId>
+    <artifactId>spring-webflux-cors-properties</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -40,7 +40,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <artifactId>spring-webflux</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
