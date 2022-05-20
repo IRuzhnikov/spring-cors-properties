@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  io.github.iruzhnikov.web.config.CorsPropWebMvcConfiguration,\
-  io.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport,\
-  io.github.iruzhnikov.web.config.DefaultCorsMvcConfiguration
+  io.github.iruzhnikov.webmvc.config.CorsPropWebMvcConfiguration,\
+  io.github.iruzhnikov.webmvc.servlet.CorsPropWebMvcConfigurationSupport,\
+  io.github.iruzhnikov.webmvc.config.DefaultCorsMvcConfiguration

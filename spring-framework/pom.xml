@@ -12,13 +12,14 @@
 
     <modules>
         <module>spring-webmvc-cors-properties</module>
+        <module>spring-webflux-cors-properties</module>
     </modules>
 
     <artifactId>spring-framework-cors-properties</artifactId>
     <packaging>pom</packaging>
 
     <properties>
-        <spring-framework.version>5.3.16</spring-framework.version>
+        <spring-framework.version>5.3.19</spring-framework.version>
     </properties>
 
     <dependencyManagement>
@@ -26,6 +27,11 @@
             <dependency>
                 <groupId>io.github.iruzhnikov</groupId>
                 <artifactId>spring-webmvc-cors-properties</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.iruzhnikov</groupId>
+                <artifactId>spring-webflux-cors-properties</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 

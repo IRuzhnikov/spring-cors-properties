@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-package io.github.iruzhnikov.config;
+package io.github.iruzhnikov.webmvc.config;
 
+import io.github.iruzhnikov.webmvc.servlet.CorsPropWebMvcConfigurationSupport;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityConfigurer {
-
+@EnableWebMvc
+@Configuration(proxyBeanMethods = false)
+@AutoConfigureAfter(CorsPropWebMvcConfigurationSupport.class)
+@ConditionalOnProperty(prefix = SpringCorsProperties.SPRING_MVC_CORS, name = "enabled", havingValue = "false")
+public class DefaultCorsMvcConfiguration {
 }

@@ -18,7 +18,7 @@ spring:
   web:
     cors:
       mappings: #spring.web.cors.mappings.<any_name>.<property>: <value>
-        randomName: #just random name, only for mapping
+        anyName: #just any name, just for grouping properties under the same path pattern (not used in internal logic)
           path: /test/post #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
           #allowed-origins: "*"
           allowed-methods: GET #Enable override all defaults! If disabled: a lot more from all the controller methods included from the path pattern matches
@@ -35,15 +35,15 @@ If you just simple using _@EnableWebMvc_ you must remove it, because it will loa
 
 if you need override class
 
-```java 
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+```java
+import org.springframework.webmvc.servlet.config.annotation.WebMvcConfigurationSupport;
 ``` 
 
 please change parent class to this or open it for learning how to it works (I mean createRequestMappingHandlerMapping
 function)
 
-```java 
-import io.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport;
+```java
+import io.github.iruzhnikov.webmvc.servlet.CorsPropWebMvcConfigurationSupport;
 ``` 
 
 # for Spring Framework
@@ -51,11 +51,11 @@ import io.github.iruzhnikov.web.servlet.CorsPropWebMvcConfigurationSupport;
 You must register property apply bean
 
 ```java
-import io.github.iruzhnikov.web.servlet.SpringMvcCorsConfigurer;
+import io.github.iruzhnikov.webmvc.servlet.SpringMvcCorsConfigurer;
 ```
 
 and you should register autoconfiguration for _allowed-methods_ (not required)
 
 ```java
-import io.github.iruzhnikov.web.servlet.CorsEndpointHandlerMapping;
+import io.github.iruzhnikov.webmvc.servlet.CorsEndpointHandlerMapping;
 ```
