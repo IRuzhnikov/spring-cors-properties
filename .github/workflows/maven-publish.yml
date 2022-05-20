@@ -42,6 +42,11 @@ jobs:
       
       - name: Clean
         run: mvn release:clean -P release
+
+      - name: Install gpg secret key
+        run: |
+          cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS }}") | gpg --batch --import
+          gpg --list-secret-keys --keyid-format LONG
         
       - name: Prepare
         run: mvn release:prepare -P release --batch-mode --no-transfer-progress  -Dgpg.useagent=true -Dgpg.keyname=${{ secrets.SIGNING_KEYID }} -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} -Dgpg.executable=gpg2
@@ -50,11 +55,6 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.SIGNING_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install gpg secret key
-        run: |
-          cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS }}") | gpg --batch --import
-          gpg --list-secret-keys --keyid-format LONG
 
       - name: Publish to Sonatype
         run: mvn release:perform -P release -Dgpg.useagent=true -Dgpg.keyname=${{ secrets.SIGNING_KEYID }} -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} -Dgpg.executable=gpg2
