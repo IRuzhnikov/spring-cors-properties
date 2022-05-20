@@ -16,7 +16,6 @@
 
 package io.github.iruzhnikov.config;
 
-import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.WebApplicationType;
@@ -36,7 +35,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
@@ -44,7 +42,6 @@ import static java.util.Objects.requireNonNull;
  * Fix initialization test client, because {@link WebTestClientAutoConfiguration#webTestClient(ApplicationContext, List, List)}
  * not contains baseUrl initialization like of {@link org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer.WebTestClientFactory#getObject()}
  */
-@Slf4j
 public class BaseUrlWebTestClientBuilderCustomizer extends DefaultUriBuilderFactory implements
         WebTestClientBuilderCustomizer, Ordered,
         ApplicationListener<WebServerInitializedEvent> {
@@ -71,7 +68,6 @@ public class BaseUrlWebTestClientBuilderCustomizer extends DefaultUriBuilderFact
         String port = context.getEnvironment().getProperty("local.server.port", "8080");
         String baseUrl = getBaseUrl(sslEnabled, port);
         baseUri.uri(URI.create(baseUrl));
-        log.debug("WebTestClient base url initialized!");
     }
 
     @Override
