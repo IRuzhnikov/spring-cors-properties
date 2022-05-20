@@ -21,3 +21,4 @@ atlassian-ide-plugin.xml
 
 release.properties
 pom.xml.releaseBackup
+pom.xml.versionsBackup
