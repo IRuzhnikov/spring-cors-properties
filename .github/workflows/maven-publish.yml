@@ -52,7 +52,7 @@ jobs:
           gpg --list-secret-keys --keyid-format LONG
 
       - name: Publish to Sonatype
-        run: mvn release:perform -P release -Dgpg.keyname=${{ secrets.SIGNING_KEYID }} -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} -Dgpg.executable=gpg2
+        run: mvn release:perform -P release -Dgpg.useagent=true -Dgpg.keyname=${{ secrets.SIGNING_KEYID }} -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} -Dgpg.executable=gpg2
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
