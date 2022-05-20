@@ -41,10 +41,10 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       
       - name: Clean
-        run: mvn release:clean
+        run: mvn release:clean -P release
         
       - name: Prepare
-        run: mvn release:prepare --batch-mode --no-transfer-progress
+        run: mvn release:prepare -P release --batch-mode --no-transfer-progress
 
       - name: Install gpg secret key
         run: |
