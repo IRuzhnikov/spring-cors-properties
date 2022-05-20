@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.github.iruzhnikov</groupId>
         <artifactId>spring-boot-cors-properties</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -88,6 +88,6 @@
     </dependencies>
 
   <scm>
-    <tag>v-1.0.6</tag>
+    <tag>v-1.0.0</tag>
   </scm>
 </project>
