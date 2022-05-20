@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.github.iruzhnikov</groupId>
         <artifactId>spring-boot-cors-properties</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -86,9 +86,4 @@
             <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
-
-
-  <scm>
-    <tag>v-1.0.0</tag>
-  </scm>
 </project>
