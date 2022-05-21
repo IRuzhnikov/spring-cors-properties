@@ -43,4 +43,4 @@ jobs:
             --no-transfer-progress \
             --batch-mode \
             -Dgpg.passphrase=${{ secrets.SIGNING_PASSWORD }} \
-            clean deploy
+            clean release:prepare release:perform -P release --batch-mode --no-transfer-progress
