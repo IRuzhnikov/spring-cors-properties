@@ -11,6 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 0400 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+          chmod 0400 ~/.ssh/id_rsa.pub
+
+      - name: Setup git user coonfig
+        run: |
+          git config --global user.email "ruzhnikov.ivan@gmail.com"
+          git config --global user.name "IRuzhnikov"
+          
       - name: Install gpg secret key
         run: |
           cat <(echo -e "${{ secrets.GPG_KEY_CONTENTS }}") | gpg --batch --import
