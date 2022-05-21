@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: maven
+    target-branch: "master"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: '04:00'
+    open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: io.github.iruzhnikov:spring-*cors-properties*
+    labels:
+      - "dependabot"
+
+  - package-ecosystem: maven
+    target-branch: "develop"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: '04:00'
+    open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: io.github.iruzhnikov:spring-*cors-properties*
+    labels:
+      - "dependabot"
