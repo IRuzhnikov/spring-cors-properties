@@ -30,7 +30,9 @@ jobs:
           git config --global user.name "IRuzhnikov"
           
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: 'master'
 
       - name: Install Java and Maven
         uses: actions/setup-java@v1
