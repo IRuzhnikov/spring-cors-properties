@@ -12,12 +12,13 @@ environments of your application. All you need to do is
 # How to add the feature to Spring Boot
 
 To enable the feature, please add the dependency to your project (navigate to this links):  
-[![MVC](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webmvc-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20MVC.&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webmvc-cors-properties-autoconfigure%22)  
-group: _io.github.iruzhnikov_  
-name: _spring-webmvc-cors-properties-autoconfigure_  
-[![FLUX](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webflux-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20FLUX&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webflux-cors-properties-autoconfigure%22)  
-group: _io.github.iruzhnikov_  
-name: _spring-webflux-cors-properties-autoconfigure_
+> [![MVC](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webmvc-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20MVC.&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webmvc-cors-properties-autoconfigure%22)  
+> group: _io.github.iruzhnikov_  
+> name: _spring-webmvc-cors-properties-autoconfigure_  
+
+> [![FLUX](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webflux-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20FLUX&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webflux-cors-properties-autoconfigure%22)  
+> group: _io.github.iruzhnikov_  
+> name: _spring-webflux-cors-properties-autoconfigure_
 
 # To enable the feature in Spring Boot project
 
