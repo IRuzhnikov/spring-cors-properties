@@ -13,7 +13,11 @@ environments of your application. All you need to do is
 
 To enable the feature, please add the dependency to your project (navigate to this links):  
 [![MVC](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webmvc-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20MVC.&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webmvc-cors-properties-autoconfigure%22)  
-[![FLUX](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webflux-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20FLUX&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webflux-cors-properties-autoconfigure%22)
+group: _io.github.iruzhnikov_  
+name: _spring-webmvc-cors-properties-autoconfigure_  
+[![FLUX](https://img.shields.io/maven-central/v/io.github.iruzhnikov/spring-webflux-cors-properties-autoconfigure.svg?label=Maven%20Central:%20Spring%20FLUX&style=flat-square)](https://search.maven.org/search?q=g:%22io.github.iruzhnikov%22%20AND%20a:%22spring-webflux-cors-properties-autoconfigure%22)  
+group: _io.github.iruzhnikov_  
+name: _spring-webflux-cors-properties-autoconfigure_
 
 # To enable the feature in Spring Boot project
 
@@ -36,7 +40,9 @@ spring:
       enabled: true
       mappings: #spring.web.cors.mappings.<any_name>.<property>: <value>
         anyName: #just any name, just for grouping properties under the same path pattern (not used in internal logic)
-          path: /path/to/api/ #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
+          paths: #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
+            - /path/to/api
+            - /path/to/api/**
           #allowed-origins: "*"
           allowed-methods: GET #Enable override all defaults! If disabled: a lot more from all the controller methods included from the path pattern matches
           #allowed-headers: "*"

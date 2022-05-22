@@ -20,13 +20,14 @@ import lombok.Data;
 
 import javax.annotation.Nullable;
 import java.time.Duration;
+import java.util.List;
 
 @Data
 public class PathCorsConfiguration {
     //Default pattern
     public static final String ALL_PATH = "/**";
 
-    private String path;
+    private List<String> paths;
     @Nullable
     private String[] allowedOrigins;
     @Nullable

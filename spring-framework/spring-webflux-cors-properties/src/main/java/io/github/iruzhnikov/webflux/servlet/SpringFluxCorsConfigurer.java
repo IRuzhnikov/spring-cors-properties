@@ -22,6 +22,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.reactive.config.CorsRegistration;
 import org.springframework.web.reactive.config.CorsRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
@@ -48,7 +49,7 @@ public class SpringFluxCorsConfigurer implements WebFluxConfigurer {
             return;
         } else {
             String errors = properties.getMappings().entrySet().stream()
-                    .filter(entry -> StringUtils.isBlank(entry.getValue().getPath()))
+                    .filter(entry -> CollectionUtils.isEmpty(entry.getValue().getPaths()))
                     .map(entry -> String.format("Not support empty path for property key: %s.mappings.%s",
                             SpringCorsProperties.SPRING_FLUX_CORS, entry.getKey()))
                     .collect(Collectors.joining(";" + System.lineSeparator()));
@@ -59,14 +60,18 @@ public class SpringFluxCorsConfigurer implements WebFluxConfigurer {
         properties.getMappings().forEach((s, config) -> configure(registry, config));
     }
 
-    private void configure(CorsRegistry registry, PathCorsConfiguration config) {
+    protected void configure(CorsRegistry registry, PathCorsConfiguration config) {
         if (log.isInfoEnabled()) {
-            log.info("Cors configure: " + config.getPath());
+            log.info("Cors configure: " + config.getPaths());
         }
         if (log.isDebugEnabled()) {
             log.debug("Cors custom details: " + config);
         }
-        CorsRegistration mapping = registry.addMapping(config.getPath());
+        config.getPaths().forEach(path -> configurePath(registry, config, path));
+    }
+
+    protected void configurePath(CorsRegistry registry, PathCorsConfiguration config, String path) {
+        CorsRegistration mapping = registry.addMapping(path);
         if (isNotEmpty(config.getAllowedOrigins())) {
             mapping.allowedOrigins(config.getAllowedOrigins());
         }
@@ -94,7 +99,7 @@ public class SpringFluxCorsConfigurer implements WebFluxConfigurer {
      * Override for suppress idea inspection
      */
     @Contract("null -> false")
-    private <T> boolean isNotEmpty(@Nullable T[] inspect) {
+    protected static <T> boolean isNotEmpty(@Nullable T[] inspect) {
         return ArrayUtils.isNotEmpty(inspect);
     }
 }

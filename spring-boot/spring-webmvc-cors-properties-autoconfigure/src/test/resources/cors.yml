@@ -19,7 +19,7 @@ spring:
       enabled: true
       mappings: #spring.web.cors.mappings.<any_name>.<property>: <value>
         post:
-          path: /test/post #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
+          paths: /test/post #ant style path pattern, ATTENTION! not ordered, /** pattern override all other pattern
           allowed-origins: "*"
           allowed-methods: GET #Enable override all defaults! If disabled: a lot more from all the controller methods included from the path pattern matches
           #allowed-headers: "*"
@@ -28,7 +28,9 @@ spring:
           allowed-origin-patterns: .*
           #max-age: PT30M
         withCors:
-          path: /test/withCors #ant style path pattern, ATTENTION! not ordered, /** pattern override all others pattern
+          paths: #ant style path pattern, ATTENTION! not ordered, /** pattern override all others pattern
+            - /test/withCors
+            - /test/withCors/**
           allowed-origins: "*"
           allowed-methods: GET #Enable override all defaults! If disabled: a lot more from all the controller methods included from the path pattern matches
           #allowed-headers: "*"

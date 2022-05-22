@@ -24,6 +24,7 @@ import org.springframework.web.reactive.result.method.RequestMappingInfo;
 import org.springframework.web.reactive.result.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 import static org.apache.commons.lang3.ArrayUtils.isEmpty;
 
@@ -55,12 +56,12 @@ public class CorsEndpointHandlerMapping extends RequestMappingHandlerMapping {
         return corsConfiguration;
     }
 
-    private boolean match(RequestMappingInfo mappingInfo) {
+    protected boolean match(RequestMappingInfo mappingInfo) {
         return properties.getMappings().values().stream().anyMatch(pathCorsConfiguration ->
                 mappingInfo.getPatternsCondition().getPatterns().stream().anyMatch(s -> {
-                    String path = pathCorsConfiguration.getPath();
+                    List<String> paths = pathCorsConfiguration.getPaths();
                     String[] allowedMethods = pathCorsConfiguration.getAllowedMethods();
-                    return isEmpty(allowedMethods) && s.matches(PathContainer.parsePath(path));
+                    return isEmpty(allowedMethods) && paths.stream().map(PathContainer::parsePath).anyMatch(s::matches);
                 }));
     }
 }

@@ -31,6 +31,11 @@ public class TestController {
         return Mono.just("gotit");
     }
 
+    @GetMapping("/withCors/subPath")
+    public Mono<String> getSubPathWithCors() {
+        return Mono.just("gotit");
+    }
+
     @GetMapping("/withoutCors")
     public Mono<String> getWithoutCors() {
         return Mono.just("gotit");
