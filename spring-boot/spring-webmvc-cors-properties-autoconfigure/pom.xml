@@ -86,8 +86,4 @@
             <artifactId>junit-jupiter</artifactId>
         </dependency>
     </dependencies>
-
-  <scm>
-    <tag>v-1.0.1</tag>
-  </scm>
 </project>
