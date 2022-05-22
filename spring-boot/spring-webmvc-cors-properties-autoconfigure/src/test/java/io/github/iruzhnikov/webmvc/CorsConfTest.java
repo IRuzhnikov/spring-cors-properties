@@ -57,6 +57,13 @@ class CorsConfTest {
     }
 
     @Test
+    void testGetSubPathWithCorsCorsMvc() throws Exception {
+        assertCors(GET, "/test/withCors/subPath",
+                status().isOk(), //has correct config
+                status().isOk()); //has correct config
+    }
+
+    @Test
     void testGetWithoutCorsCorsMvc() throws Exception {
         assertCors(GET, "/test/withoutCors",
                 status().isForbidden(), //has no config

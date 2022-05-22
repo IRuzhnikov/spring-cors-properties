@@ -30,6 +30,11 @@ public class TestController {
         return "gotit";
     }
 
+    @GetMapping("/withCors/subPath")
+    public String getSubPathWithCors() {
+        return "gotit";
+    }
+
     @GetMapping("/withoutCors")
     public String getWithoutCors() {
         return "gotit";

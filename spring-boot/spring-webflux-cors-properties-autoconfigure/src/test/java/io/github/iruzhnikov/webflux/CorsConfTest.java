@@ -56,6 +56,13 @@ class CorsConfTest {
     }
 
     @Test
+    void testGetSubPathWithCorsCorsFlux() {
+        assertCors(GET, "/test/withCors/subPath",
+                StatusAssertions::isOk, //has correct config
+                StatusAssertions::isOk); //has correct config
+    }
+
+    @Test
     void testGetWithoutCorsCorsFlux() {
         assertCors(GET, "/test/withoutCors",
                 StatusAssertions::isForbidden, //has no config
