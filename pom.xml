@@ -92,7 +92,7 @@
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
-        <junit-jupiter.version>5.9.0-M1</junit-jupiter.version>
+        <junit-jupiter.version>5.9.0</junit-jupiter.version>
 
         <gpg.keyname>0x49F356A2</gpg.keyname>
         <gpg.passphrase>gpg_passphrase</gpg.passphrase>
